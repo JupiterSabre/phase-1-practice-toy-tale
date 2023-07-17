@@ -38,6 +38,9 @@ fetch(`http://localhost:3000/toys`)
 function createToy(toyObject) {
   const newDiv = document.createElement(`div`)
     newDiv.setAttribute(`class`, `card`)
+    const name = document.createElement(`h2`)
+    name.textContent = toyObject.name
+    newDiv.appendChild(name)
     const img = document.createElement('img');
     img.src = toyObject.image;
     img.style.height = `200px`;
@@ -53,8 +56,8 @@ function createToy(toyObject) {
     // ADD LIKE FUNCTIONALITY TO BUTTON
     button.addEventListener(`click`, () => {
       // const currentNumLikes = toyObject.likes;
-      updateLikes(toyObject.id, ++toyObject.likes)
       likes.textContent = toyObject.likes
+      updateLikes(toyObject.id, ++toyObject.likes)
     })
 }
 
@@ -76,9 +79,9 @@ function updateLikes(id, newNumberOfLikes) {
   })
 
 }
-  // fetch(`http://localhost:3000/toys/:` + id, OPTIONS)
-console.log(`http://localhost:3000/toys/:` + 1)
-updateLikes(1, 500)
+
+// console.log(`http://localhost:3000/toys/:` + 1)
+// updateLikes(1, 500)
 
 
 
